@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "genre": "Fiction",
+    "year": 1960,
+    "description": "A classic novel about racial injustice and moral growth in the American South.",
+    "isbn": "978-0-06-112008-4",
+    "createdAt": "2025-09-22T16:44:27.305Z",
+    "updatedAt": "2025-09-22T16:44:27.306Z"
+  },
+  {
+    "id": 2,
+    "title": "1984",
+    "author": "George Orwell",
+    "genre": "Science Fiction",
+    "year": 1949,
+    "description": "A dystopian novel about totalitarianism and surveillance.",
+    "isbn": "978-0-452-28423-4",
+    "createdAt": "2025-09-22T16:44:27.306Z",
+    "updatedAt": "2025-09-22T16:44:27.306Z"
+  },
+  {
+    "id": 3,
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "genre": "Romance",
+    "year": 1813,
+    "description": "A romantic novel about Elizabeth Bennet and Mr. Darcy.",
+    "isbn": "978-0-14-143951-8",
+    "createdAt": "2025-09-22T16:44:27.306Z",
+    "updatedAt": "2025-09-22T16:44:27.306Z"
+  },
+  {
+    "id": 4,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "genre": "Fiction",
+    "year": 1925,
+    "description": "A story of decadence and excess in Jazz Age America.",
+    "isbn": "978-0-7432-7356-5",
+    "createdAt": "2025-09-22T16:44:27.306Z",
+    "updatedAt": "2025-09-22T16:44:27.306Z"
+  }
+]

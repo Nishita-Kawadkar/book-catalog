@@ -1,0 +1,278 @@
+# 📚 BookVault - Digital Book Catalogue
+
+A comprehensive book catalogue application built with HTML, CSS, JavaScript frontend and Node.js backend with RESTful API.
+
+## ✨ Features
+
+### Frontend Features
+- **Modern UI/UX**: Beautiful, responsive design with glassmorphism effects
+- **Real-time Search**: Search books by title, author, or genre
+- **Advanced Filtering**: Filter by genre, publication year, and sort options
+- **CRUD Operations**: Add, edit, delete books with modal interface
+- **Statistics Dashboard**: View total books, authors, and genres
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Offline Fallback**: Works with sample data when server is unavailable
+
+### Backend Features
+- **RESTful API**: Complete CRUD operations for books
+- **Data Persistence**: JSON file-based storage
+- **Input Validation**: Comprehensive validation for book data
+- **Bulk Operations**: Add multiple books at once
+- **Statistics API**: Get detailed catalogue statistics
+- **Error Handling**: Robust error handling and status codes
+- **CORS Support**: Cross-origin resource sharing enabled
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Create project directory**:
+```bash
+mkdir book-catalogue
+cd book-catalogue
+```
+
+2. **Initialize the project**:
+```bash
+npm init -y
+```
+
+3. **Install dependencies**:
+```bash
+npm install express cors
+npm install --save-dev nodemon
+```
+
+4. **Create the server file** (`server.js`):
+Copy the Node.js backend code provided above.
+
+5. **Create public directory** and add the HTML file:
+```bash
+mkdir public
+```
+Copy the HTML frontend code into `public/index.html`.
+
+6. **Update package.json**:
+Replace the contents with the package.json provided above.
+
+### Running the Application
+
+1. **Start the server**:
+```bash
+npm start
+# or for development with auto-reload:
+npm run dev
+```
+
+2. **Open your browser** and navigate to:
+```
+http://localhost:3000
+```
+
+## 📁 Project Structure
+
+```
+book-catalogue/
+├── server.js              # Node.js backend server
+├── package.json           # Project configuration
+├── data/                  # Auto-generated data directory
+│   └── books.json         # Book data storage
+└── public/                # Frontend files
+    └── index.html         # Main HTML file with CSS & JS
+```
+
+## 🔧 API Endpoints
+
+### Books Management
+- `GET /api/books` - Get all books (with optional filtering)
+- `GET /api/books/:id` - Get a specific book
+- `POST /api/books` - Create a new book
+- `PUT /api/books/:id` - Update a book
+- `DELETE /api/books/:id` - Delete a book
+
+### Bulk Operations
+- `POST /api/books/bulk` - Add multiple books
+
+### Metadata
+- `GET /api/stats` - Get catalogue statistics
+- `GET /api/genres` - Get all unique genres
+- `GET /api/authors` - Get all unique authors
+
+### Query Parameters for /api/books
+- `search` - Search in title, author, genre, description
+- `genre` - Filter by specific genre
+- `year` - Filter by publication year
+- `author` - Filter by author name
+- `limit` - Limit number of results
+- `offset` - Pagination offset
+
+## 📝 API Usage Examples
+
+### Get all books
+```bash
+curl http://localhost:3000/api/books
+```
+
+### Search books
+```bash
+curl "http://localhost:3000/api/books?search=gatsby"
+```
+
+### Filter by genre
+```bash
+curl "http://localhost:3000/api/books?genre=Fiction"
+```
+
+### Add a new book
+```bash
+curl -X POST http://localhost:3000/api/books \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "genre": "Fiction",
+    "year": 1951,
+    "description": "A coming-of-age story about Holden Caulfield.",
+    "isbn": "978-0-316-76948-0"
+  }'
+```
+
+### Update a book
+```bash
+curl -X PUT http://localhost:3000/api/books/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Updated Title",
+    "author": "Updated Author",
+    "genre": "Updated Genre"
+  }'
+```
+
+### Delete a book
+```bash
+curl -X DELETE http://localhost:3000/api/books/1
+```
+
+### Get statistics
+```bash
+curl http://localhost:3000/api/stats
+```
+
+## 💾 Data Format
+
+Books are stored with the following structure:
+
+```json
+{
+  "id": 1,
+  "title": "Book Title",
+  "author": "Author Name",
+  "genre": "Fiction",
+  "year": 2023,
+  "description": "Book description...",
+  "isbn": "978-1-234-56789-0",
+  "createdAt": "2023-01-01T00:00:00.000Z",
+  "updatedAt": "2023-01-01T00:00:00.000Z"
+}
+```
+
+## 🎨 Customization
+
+### Adding New Genres
+Edit the genre options in the HTML form:
+```html
+<option value="Your-Genre">Your Genre</option>
+```
+
+### Styling Changes
+All CSS is contained in the HTML file. Modify the `<style>` section to customize:
+- Colors and gradients
+- Typography
+- Layout and spacing
+- Animations and effects
+
+### Adding New Features
+The modular JavaScript structure makes it easy to add new features:
+- Extend the `BookCatalogue` class
+- Add new API endpoints in `server.js`
+- Create new UI components
+
+## 🔒 Validation Rules
+
+### Required Fields
+- Title (non-empty string)
+- Author (non-empty string)
+
+### Optional Fields
+- Genre (defaults to "Other")
+- Publication Year (1000 - current year)
+- Description (any text)
+- ISBN (basic format validation)
+
+### Business Rules
+- No duplicate books (same title + author)
+- Automatic ID generation
+- Timestamps for created/updated dates
+
+## 🛠️ Development Tips
+
+### For Development
+1. Use `npm run dev` for auto-reload during development
+2. Check the console for detailed error messages
+3. The data file is created automatically in the `data/` directory
+
+### For Production
+1. Consider using a proper database (MongoDB, PostgreSQL)
+2. Add authentication and authorization
+3. Implement rate limiting
+4. Add logging and monitoring
+5. Use environment variables for configuration
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Server won't start:**
+- Check if port 3000 is available
+- Ensure all dependencies are installed
+- Check Node.js version (>=14 required)
+
+**Frontend not loading:**
+- Make sure the server is running
+- Check browser console for errors
+- Verify the HTML file is in the `public/` directory
+
+**Data not persisting:**
+- Check write permissions in the project directory
+- Ensure the `data/` directory can be created
+- Check server logs for file system errors
+
+**API errors:**
+- Validate JSON format in requests
+- Check Content-Type headers
+- Review server console for detailed error messages
+
+## 🚀 Future Enhancements
+
+- User authentication and authorization
+- Image upload for book covers
+- Categories and tags system
+- Reading progress tracking
+- Book recommendations
+- Export/import functionality
+- Advanced search with filters
+- Rating and review system
+- Multiple library support
+- Mobile app companion
+
+## 📄 License
+
+MIT License - feel free to use this project for personal or commercial purposes.
+
+---
+
+**Happy cataloging! 📚✨**
